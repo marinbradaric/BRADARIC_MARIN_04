@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadatak 1</title>
+  </head>
+  <body>
+    <script>
+      // Aritmetička sredina
+      const skup = prompt("Unesite skup brojeva: ").split(",").map(Number);
+      let suma = 0;
+      for (let i = 0; i < skup.length; i++) {
+        suma += skup[i];
+      }
+      const aritmetickaSredina = suma / skup.length;
+      document.write(`Aritmetička sredina: ${aritmetickaSredina}`);
+      console.log(`Aritmetička sredina: ${aritmetickaSredina}`);
+
+      // Geometrijska sredina
+      let umnozak = 1;
+      for (let i = 0; i < skup.length; i++) {
+        umnozak *= skup[i];
+      }
+      const geometrijskaSredina = Math.pow(umnozak, 1 / skup.length);
+      document.write(`<br>Geometrijska sredina: ${geometrijskaSredina}`);
+      console.log(`Geometrijska sredina: ${geometrijskaSredina}`);
+    </script>
+  </body>
+</html>

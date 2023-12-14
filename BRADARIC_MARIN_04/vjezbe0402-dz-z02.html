@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadatak 2</title>
+  </head>
+  <body>
+    <button id="btn" onclick="promijeniBoju()">Promijeni pozadinu</button>
+    <p id="trenutna"></p>
+
+    <script>
+      const btn = document.getElementById("btn");
+      const body = document.querySelector("body");
+      const trenutnaBoja = document.getElementById("trenutna");
+
+      // Generira random boju
+      function getRandomColor() {
+        const randomColor =
+          "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+        return randomColor;
+      }
+
+      function promijeniBoju() {
+        body.style.backgroundColor = getRandomColor();
+        trenutnaBoja.innerHTML = `Trenutna boja: ${body.style.backgroundColor}`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadatak 3</title>
+  </head>
+  <body>
+    <form id="ocjenaForma">
+      <label for="ocjena">Unesite ocjenu (1-5): </label>
+      <input type="text" id="ocjena" name="ocjena" />
+      <button type="button" onclick="ispisiOcjenu()">Provjeri ocjenu</button>
+    </form>
+
+    <script>
+      function ispisiOcjenu() {
+        const ocjenaInput = document.getElementById("ocjena");
+        const ocjena = parseInt(ocjenaInput.value);
+
+        const nazivOcjena = [
+          "nedovoljan",
+          "dovoljan",
+          "dobar",
+          "vrlo dobar",
+          "odličan",
+        ];
+
+        alert(`${ocjena} - ${nazivOcjena[ocjena - 1]}`);
+      }
+    </script>
+  </body>
+</html>

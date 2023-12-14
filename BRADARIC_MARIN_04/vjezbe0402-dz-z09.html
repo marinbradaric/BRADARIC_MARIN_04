@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadatak 9</title>
+    <style>
+      #prekidac {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      id="prekidac"
+      onclick="toggleZarulja()"
+      src="zarulja_on_off/off-removebg-preview.png"
+      alt=""
+    />
+    <img id="zarulja" src="zarulja_on_off/zarulja_off_2.png" alt="" />
+
+    <script>
+      let ugasena = true;
+
+      function toggleZarulja() {
+        const zarulja = document.getElementById("zarulja");
+        const prekidac = document.getElementById("prekidac");
+
+        if (ugasena) {
+          zarulja.src = "zarulja_on_off/zarulja_on_2.png";
+          prekidac.src = "zarulja_on_off/on-removebg-preview.png";
+          ugasena = false;
+        } else {
+          zarulja.src = "zarulja_on_off/zarulja_off_2.png";
+          prekidac.src = "zarulja_on_off/off-removebg-preview.png";
+          ugasena = true;
+        }
+      }
+    </script>
+  </body>
+</html>

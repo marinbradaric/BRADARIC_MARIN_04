@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadatak 8</title>
+  </head>
+  <style>
+    #container {
+      width: 300px;
+      margin: 0 auto;
+    }
+    table {
+      margin-top: 10px;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <input type="number" id="operand1" name="operand1" />
+      <label for="operand1">operand1</label>
+      <br />
+      <input
+        type="number"
+        id="operand2"
+        name="operand2"
+        style="margin-top: 10px"
+      />
+      <label for="operand2">operand2</label>
+      <br />
+      <table>
+        <tr>
+          <td><input type="button" value="+" /></td>
+          <td><input type="button" value="-" /></td>
+          <td><input type="button" value="*" /></td>
+          <td><input type="button" value="/" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="sin" /></td>
+          <td><input type="button" value="cos" /></td>
+          <td><input type="button" value="tan" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="ln" /></td>
+          <td><input type="button" value="log" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="^2" /></td>
+          <td><input type="button" value="^3" /></td>
+          <td><input type="button" value="^n" /></td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      const operand1 = document.getElementById("operand1");
+      const operand2 = document.getElementById("operand2");
+      const buttons = document.querySelectorAll("input[type=button]");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const value = e.target.value;
+          const result = calculate(value);
+          alert(result);
+        });
+      });
+
+      function calculate(value) {
+        const op1 = Number(operand1.value);
+        const op2 = Number(operand2.value);
+        let result = 0;
+
+        switch (value) {
+          case "+":
+            result = op1 + op2;
+            break;
+          case "-":
+            result = op1 - op2;
+            break;
+          case "*":
+            result = op1 * op2;
+            break;
+          case "/":
+            result = op1 / op2;
+            break;
+          case "sin":
+            result = Math.sin(op1);
+            break;
+          case "cos":
+            result = Math.cos(op1);
+            break;
+          case "tan":
+            result = Math.tan(op1);
+            break;
+          case "ln":
+            result = Math.log(op1);
+            break;
+          case "log":
+            result = Math.log10(op1);
+            break;
+          case "^2":
+            result = Math.pow(op1, 2);
+            break;
+          case "^3":
+            result = Math.pow(op1, 3);
+            break;
+          case "^n":
+            result = Math.pow(op1, op2);
+            break;
+        }
+
+        return result;
+      }
+    </script>
+  </body>
+</html>

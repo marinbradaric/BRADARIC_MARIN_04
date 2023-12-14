@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadatak 7</title>
+  </head>
+  <body>
+    <form>
+      <label for="dan">Unesite dan (01-31)</label>
+      <input type="text" id="dan" name="dan" />
+      <br />
+      <label for="mjesec">Unesite mjesec (01-12)</label>
+      <input type="text" id="mjesec" name="mjesec" />
+      <br />
+      <label for="godina">Unesite godinu (npr. 1970)</label>
+      <input type="text" id="godina" name="godina" />
+      <br />
+      <button type="button" id="btn" onclick="izracunaj()">Izracunaj</button>
+    </form>
+
+    <script>
+      const dan = document.getElementById("dan");
+      const mjesec = document.getElementById("mjesec");
+      const godina = document.getElementById("godina");
+
+      function izracunaj() {
+        const datumRodjenja = new Date(
+          parseInt(godina.value),
+          parseInt(mjesec.value) - 1,
+          parseInt(dan.value)
+        );
+        const danas = new Date();
+        let dob = danas.getFullYear() - datumRodjenja.getFullYear();
+        const mjeseci = danas.getMonth() - datumRodjenja.getMonth();
+        if (
+          mjeseci < 0 ||
+          (mjeseci === 0 && danas.getDate() < datumRodjenja.getDate())
+        ) {
+          dob--;
+        }
+
+        alert("Korisnik ima " + dob + " godina.");
+      }
+    </script>
+  </body>
+</html>

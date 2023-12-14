@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadatak 5</title>
+  </head>
+  <body>
+    <form id="registracijskaForma">
+      <label for="registarskaOznaka">Unesite registarsku oznaku: </label>
+      <input type="text" id="registarskaOznaka" name="registarskaOznaka" />
+      <button type="button" id="btn">Provjeri registraciju</button>
+    </form>
+
+    <script>
+      const registracijaInput = document.getElementById("registarskaOznaka");
+      const gumb = document.getElementById("btn");
+
+      function provjeriRegistraciju(oznaka) {
+        const regexOznake = /^[AEJKMOT]\d{2}-[AEJKMOT]-\d{3}$/;
+
+        return regexOznake.test(oznaka);
+      }
+
+      gumb.addEventListener("click", () => {
+        const registracija = registracijaInput.value;
+
+        if (provjeriRegistraciju(registracija)) {
+          alert("Registracija je ispravna!");
+        } else {
+          alert("Registracija nije ispravna!");
+        }
+      });
+    </script>
+  </body>
+</html>
